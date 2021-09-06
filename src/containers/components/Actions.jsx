@@ -4,6 +4,7 @@ import CopyIcon from '../../images/copy.png'
 
 const navigatorHasShare = navigator.share
 
+//correto aqui seria onde o site esta hospedado, o dominio.
 const URL = 'http://localhost:3001/'
 
 function Actions({ post, subject }) {
@@ -11,14 +12,14 @@ function Actions({ post, subject }) {
   
   const shareInfo = () => {
     navigator.share({
-      title: `PWA News - ${subject}`,
+      title: `News PWA - ${subject}`,
       text: title,
       url: URL
     })
   }
 
   const copyInfo = () => {
-    navigator.clipboard.writeText(`${title} - *Learn more about in* ${URL}/${subject}/${id}`)
+    navigator.clipboard.writeText(`${title} - *Saiba mais* ${URL}/${subject}/${id}`)
   }
 
   const renderActions = () => {

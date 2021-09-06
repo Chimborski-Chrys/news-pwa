@@ -26,8 +26,8 @@ function Technology({ values }) {
                     <p>
                     <strong dangerouslySetInnerHTML={createMarkup(title)} />
                     </p>
-                  {/*   <p dangerouslySetInnerHTML={createMarkup(description)} />
-                    {image.url && renderImg({ image, description })}*/}
+                     <p dangerouslySetInnerHTML={createMarkup(description)} />
+                    {image.url && renderImg({ image, description })}
                 </article>
             </Col>
         )
@@ -37,10 +37,10 @@ function Technology({ values }) {
 
     return (
         <Row gutter={[16, 16]}>
-         {/*linha com erro*/}       {renderPost(values)}
+          {values?.map(renderPost)}
         </Row>
-    )
-}
+      )
+    }
 
 Technology.defaultProps = {
     values: []

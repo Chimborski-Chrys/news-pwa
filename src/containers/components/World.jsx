@@ -8,9 +8,9 @@ function World({ values }) {
     const history = useHistory()
 
     const renderImg = ({ image, description }) => (
-        <div>
+    {/*   <div>
             <img src={image.url} alt={description} width="100%" />
-        </div>
+        </div> */}
     )
 
     const openPost = (id) => {
@@ -23,7 +23,7 @@ function World({ values }) {
         const spanValue = isFirst ? 24 : 12
 
         return (
-            <Col span={spanValue} md={6} key={`World-${index}`}>
+            <Col span={spanValue} key={`world-${index}`}>
                 <article onClick={() => openPost(id)}>
                     <p>
                     <strong dangerouslySetInnerHTML={createMarkup(title)} />
@@ -38,13 +38,10 @@ function World({ values }) {
 
     return (
         <Row gutter={[16, 16]}>
-         {/*linha com erro*/}    
-       {/*       {values.map(renderPost)} */}
-     
-         </Row>
-        
-    )
-}
+   {/**     {values?.map(renderPost)}  */}  
+        </Row>
+      )
+    }
 
 World.defaultProps = {
     values: []

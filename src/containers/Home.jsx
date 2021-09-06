@@ -12,9 +12,9 @@ function Home() {
     const handleNews = (articles) => {
         setLoading(false)
         setNews({
-            world: articles[0]?.value,
-            economy: articles[1]?.value,
-            technology: articles[2]?.value,
+            world: articles[0]?.value.value,
+            economy: articles[1]?.value.value,
+            technology: articles[2]?.value.value,
         })
       }
 

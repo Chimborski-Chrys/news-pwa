@@ -33,10 +33,10 @@ function Economy({ values }) {
 
     return (
         <Row gutter={[16, 16]}>
-     {/*linha com erro*/}       {renderPost(values)}
+          {values?.map(renderPost)}
         </Row>
-    )
-}
+      )
+    }
 
 Economy.defaultProps = {
     values:[]

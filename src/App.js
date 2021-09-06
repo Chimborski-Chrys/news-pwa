@@ -9,14 +9,16 @@ function App() {
     <main>
       <section>
         <Router>
-          <Switch>
-            <Route path="/:subject/:id">
-             <Home />
-            </Route>
-            <Route path="/">
-             <Home />
-            </Route>
-          </Switch>
+          <div>
+            <Switch>
+              <Route path="/:subject/:id">
+                <Post />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </div>
         </Router>
       </section>
     </main>
