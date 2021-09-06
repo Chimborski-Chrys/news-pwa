@@ -1,5 +1,8 @@
 import React, { memo, useEffect, useState } from "react";
 import { Row, Col } from 'antd';
+import Economy from './components/Economy';
+import Technology from './components/Technology';
+import World from './components/World';
 import Api from '../api';
 
 function Home() {
@@ -7,8 +10,13 @@ function Home() {
     const [loading, setLoading] = useState(false)
 
     const handleNews = (articles) => {
-        console.log("ar", articles)
-    }
+        setLoading(false)
+        setNews({
+            world: articles[0]?.value,
+            economy: articles[1]?.value,
+            technology: articles[2]?.value,
+        })
+      }
 
     useEffect(() => {
         setLoading(true)
@@ -17,29 +25,32 @@ function Home() {
             Api.getNews('economy'),
             Api.getNews('technology')
         ])
-        .then(handleNews)
+            .then(handleNews)
     }, [])
 
-
+    if (loading) return <div>Loading...</div>
 
     return (
-    <div>
-        <Row gutter={[16, 16]}>
+        <div>
+            <Row gutter={[16, 16]}>
+                <Col span={24}>
+                    <h2>Mundo</h2>
+                    <World values={news?.world} />
+                </Col>
+                <Col span={24} md={16}>
+                    <h2>Economia</h2>
+                    <Economy values={news?.economy} />
+                </Col>
+            </Row>
+            <hr />
+            <Row gutter={[16, 16]}>
             <Col span={24} md={16}>
-                <h2>Mundo</h2>
-            </Col>
-            <Col span={24} md={16}>
-                <h2>Economia</h2>
-            </Col>
-        </Row>
-        <hr />
-        <Row gutter={[16, 16]}>
-            <Col span={24} md={16}>
-                <h2>Tecnologia</h2>
-            </Col>
-        </Row>
-    </div>
+                    <h2>Tecnologia</h2>
+                    <Technology values={news?.technology} />
+                </Col>
+            </Row>
+        </div>
     );
 };
 
-export default memo (Home)
+export default memo(Home)

@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "type": "module",
   "description": "",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
+    "start": "npm run build && node --experimental-json-modules build/index.mjs",
     "dev": "nodemon --experimental-json-modules src/index.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "mkdir -p build && cp -R node_modules src/* build"
   },
   "author": "",
   "license": "ISC",
